@@ -1,0 +1,379 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background-color: peachpuff;
+  display: flex;
+  padding: 10px 20px;
+  color: black;
+  align-items: center;
+  position: relative;
+}
+
+header img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+/* Two-Column Main Layout Container */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1280px;
+  margin: 20px auto;
+  padding: 0 15px;
+  justify-content: center;
+}
+
+/* Left Column Styling */
+.left-column {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Right Column Styling */
+.right-column {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.box-group {
+  background: #ffffff;
+  border: 1px solid #f0d5be;
+  margin-bottom: 20px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.box-group h3 {
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.box-group p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.box-group ul {
+  list-style-position: inside;
+  text-align: center;
+  padding: 0;
+  margin-top: 8px;
+}
+
+.box-group li {
+  display: list-item;
+}
+
+/* Quick Links Styles */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.links a {
+  background-color: peachpuff;
+  color: #333;
+  padding: 12px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  width: 90%;
+  transition: background-color 0.2s;
+  text-align: center;
+}
+
+.links a:hover {
+  background-color: #f3bc96;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  display: none;
+  background-color: peachpuff;
+  position: absolute;
+  top: 70px;
+  right: 15px;
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  text-align: left;
+  padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+}
+
+.dropdown-menu li:hover {
+  background-color: white;
+}
+
+.dropdown-menu.active {
+  display: block;
+}
+
+/* Position the parent list item relative so the submenu anchors to it */
+.dropdown-menu .dropdown-parent {
+  position: relative;
+}
+
+/* Hide the submenu by default and position it to the right */
+.dropdown-menu .submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 200px;
+  background-color: peachpuff;
+  border-radius: 0 8px 8px 8px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+}
+
+/* Style individual submenu items */
+.dropdown-menu .submenu li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.dropdown-menu .submenu li a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+}
+
+.dropdown-menu .submenu li:hover {
+  background-color: white;
+}
+
+/* Show submenu on hover */
+.dropdown-menu .dropdown-parent:hover .submenu {
+  display: block;
+}
+
+/* Hamburger Menu Icon */
+.menu {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.menu::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  top: -8px;
+  left: 0;
+}
+
+.menu::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  top: 8px;
+  left: 0;
+}
+
+/* Contacts Box Overrides for Right Column */
+.contacts-box {
+  text-align: left;
+  font-size: 0.95rem;
+  width: 100%;
+  margin-left: 0;
+}
+
+.contacts-box h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.contacts-box p {
+  margin-bottom: 12px;
+}
+
+.map-container {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 280px;
+  border: 0;
+  border-radius: 6px;
+}
+
+.right-column img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+/* Make sidebar images look interactive */
+.right-column .links img.zoomable-img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.right-column .links img.zoomable-img:hover {
+  transform: scale(1.02);
+}
+
+/* The Modal Overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Modal Content (The Image) */
+.modal-content {
+  display: block;
+  max-width: 80vw;
+  max-height: 75vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  cursor: grab;
+  user-select: none;
+  -webkit-user-drag: none;
+  border-radius: 4px;
+}
+
+.modal-content:active {
+  cursor: grabbing;
+}
+
+/* Zoom Controls Toolbar */
+.modal-controls {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1010;
+  display: flex;
+  gap: 10px;
+}
+
+.modal-controls button {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 6px 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.modal-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Caption Text */
+#modalCaption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #bbb;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+  background-color: #fff;
+}
