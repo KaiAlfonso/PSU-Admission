@@ -6,6 +6,88 @@
     <title>Admission - Palawan State University</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="Admission LOGO.jpg" />
+    <style>
+      .posting {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        text-align: left;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .image-preview {
+        flex: 0 0 200px;
+        text-align: center;
+      }
+
+      .image-preview img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+      }
+
+      .image-preview img:hover {
+        transform: scale(1.02);
+      }
+
+      .text-content {
+        flex: 1; 
+        min-width: 0;
+        overflow-wrap: break-word;
+      }
+
+      /* Gallery Modal Styles */
+      .gallery-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        overflow: auto;
+        padding: 40px 20px;
+      }
+
+      .gallery-modal-content {
+        max-width: 650px;
+        margin: auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        position: relative;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .gallery-grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+      }
+
+      .modal-close-btn {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #333;
+      }
+    </style>
   </head>
 
   <body>
@@ -53,12 +135,72 @@
     <main class="main-container">
       <!-- LEFT COLUMN (Announcements, Vision/Mission, Programs, News) -->
       <section class="left-column">
-        
         <section class="box-group">
           <h3 style="text-align: left;">ANNOUNCEMENTS</h3>
           <hr>
-          <p></p>
+            <!-- Announcement 1: Grade 1 -->
+            <div class="posting">
+                <div class="image-preview">
+                    <img src="Grade 1 Application/1.jpeg" alt="Grade 1 Application Preview" onclick="openModal1()">
+                    <p style="font-size: 11px; color: #666; margin-top: 6px;">Click to view all images</p>
+                </div>
+                <div class="text-content">
+                    <h3><a href="https://www.facebook.com/share/p/17f3wH5VMD/" style="color: inherit;">📣Calling all future Grade 1 Pupils❗</a></h3>
+                    <p>Palawan State University Integrated Laboratory Schools-Elementary Department is now OPEN for Grade 1 Applicants for School Year 2027–2028!</p>
+                </div>
+            </div>
+
+            <!-- Announcement 2: School of Law -->
+            <div class="posting">
+                <div class="image-preview">
+                    <img src="School of Law/1.jpeg" alt="School of Law Application Preview" onclick="openModal2()">
+                    <p style="font-size: 11px; color: #666; margin-top: 6px;">Click to view all images</p>
+                </div>
+                <div class="text-content">
+                    <h3><a href="https://www.facebook.com/share/p/1EuMvNWcGc/" style="color: inherit;">📣𝗦𝗖𝗛𝗢𝗢𝗟 𝗢𝗙 𝗟𝗔𝗪 𝗔𝗗𝗠𝗜𝗦𝗦𝗜𝗢𝗡, 2𝗡𝗗 𝗦𝗘𝗠𝗘𝗦𝗧𝗘𝗥, 𝗔𝗬 2026-2027❗</a></h3>
+                    <p>The University invites qualified applicants who aspire to pursue a career in law to submit their applications for the 2nd Semester, 
+                    AY 2026-2027. This is your chance to take the first step with PSU School of LAW toward a future in the legal profession. 
+                    <br /><br />
+                    ADMISSION APPLICATION LINK: 
+                    <a href="https://oes.psu.palawan.edu.ph/aims/application/" target="_blank">https://oes.psu.palawan.edu.ph/aims/application/</a></p>
+                </div>  
+            </div>
+
+            <!-- Announcement 3: Graduate School-->
+            <div class="posting">
+                <div class="image-preview">
+                    <img src="Graduate School/1.jpeg" alt="Graduate School Application Preview" onclick="openModal3()">
+                    <p style="font-size: 11px; color: #666; margin-top: 6px;">Click to view all images</p>
+                </div>
+                <div class="text-content">
+                    <h3><a href="https://www.facebook.com/share/p/1bk8jLivuV/" style="color: inherit;">📣𝗚𝗥𝗔𝗗𝗨𝗔𝗧𝗘 𝗦𝗖𝗛𝗢𝗢𝗟 𝗔𝗗𝗠𝗜𝗦𝗦𝗜𝗢𝗡, 2𝗡𝗗 𝗦𝗘𝗠𝗘𝗦𝗧𝗘𝗥, 𝗔𝗬 2026-2027❗</a></h3>
+                    <p>Ready to take your studies to the next level? PSU Graduate School invites applicants who want to 
+                       advance their knowledge and grow their career opportunities. 
+                    <br /><br />
+                      Take this chance to shape your future and join a community of learners and leaders. Apply now!
+                    <br /><br />
+                    ADMISSION APPLICATION LINK: 
+                    <a href="https://oes.psu.palawan.edu.ph/aims/application/" target="_blank">https://oes.psu.palawan.edu.ph/aims/application/</a></p>
+                </div>  
+            </div>
+            
+            <!-- Announcement 4: EXISTING ACCOUNTS APPLICATION PROCESS -->
+            <div class="posting">
+                <div class="image-preview">
+                    <img src="Existing Accounts/1.jpeg" alt="Existing Accounts Application Preview" onclick="openModal4()">
+                    <p style="font-size: 11px; color: #666; margin-top: 6px;">Click to view all images</p>
+                </div>
+                <div class="text-content">
+                    <h3><a href="https://www.facebook.com/share/p/1BxupofQZP/" style="color: inherit;">📣𝗦𝗧𝗨𝗗𝗘𝗡𝗧𝗦 𝗪𝗜𝗧𝗛 𝗘𝗫𝗜𝗦𝗧𝗜𝗡𝗚 𝗔𝗖𝗖𝗢𝗨𝗡𝗧𝗦 𝗔𝗣𝗣𝗟𝗜𝗖𝗔𝗧𝗜𝗢𝗡 𝗣𝗥𝗢𝗖𝗘𝗦𝗦❗</a></h3>
+                    <p>This procedure applies to continuing students advancing to the next level — such as graduates entering College, 
+                      or graduates proceeding to a Master’s program — within Palawan State University.
+                    <br /><br />
+                      LINK:                    
+                    <a href="https://oes.psu.palawan.edu.ph/aims/students/" target="_blank">https://oes.psu.palawan.edu.ph/aims/students/</a></p>
+                </div>  
+            </div>
         </section>
+
         <section class="box-group">
           <h3>PSU VISION</h3>
           <p>
@@ -162,21 +304,87 @@
           </div>
         </aside>
 
-        <!-- Image Popup Modal with Zoom Controls -->
+        <!-- Standard Single Image Zoom Modal -->
         <div id="imageModal" class="modal">
           <span class="modal-close" onclick="closeModal()">&times;</span>
-          
-          <!-- Zoom Tool Bar -->
           <div class="modal-controls">
             <button onclick="zoomIn()">+</button>
             <button onclick="zoomOut()">-</button>
             <button onclick="resetZoom()">Reset</button>
           </div>
-
           <div class="modal-img-container" id="imgContainer">
             <img class="modal-content" id="modalImg" alt="Enlarged View" />
           </div>
           <div id="modalCaption"></div>
+        </div>
+
+        <!-- Grade 1 Gallery Modal -->
+        <div id="galleryModal1" class="gallery-modal">
+          <div class="gallery-modal-content">
+            <span class="modal-close-btn" onclick="closeModal1()">&times;</span>
+            <h3 style="text-align: center; margin-bottom: 10px;">Grade 1 Application Details</h3>
+            <div class="gallery-grid">
+              <img src="Grade 1 Application/1.jpeg" alt="Grade 1 Application 1">
+              <img src="Grade 1 Application/2.jpeg" alt="Grade 1 Application 2">
+              <img src="Grade 1 Application/3.jpeg" alt="Grade 1 Application 3">
+              <img src="Grade 1 Application/4.jpeg" alt="Grade 1 Application 4">
+            </div>
+          </div>
+        </div>
+
+        <!-- School of Law Gallery Modal -->
+        <div id="galleryModal2" class="gallery-modal">
+          <div class="gallery-modal-content">
+            <span class="modal-close-btn" onclick="closeModal2()">&times;</span>
+            <h3 style="text-align: center; margin-bottom: 10px;">School of Law Admission Details</h3>
+            <div class="gallery-grid">
+              <img src="School of Law/1.jpeg" alt="School of Law 1">
+              <img src="School of Law/2.jpeg" alt="School of Law 2">
+              <img src="School of Law/3.jpeg" alt="School of Law 3">
+              <img src="School of Law/4.jpeg" alt="School of Law 4">
+              <img src="School of Law/5.jpeg" alt="School of Law 5">
+              <img src="School of Law/6.jpeg" alt="School of Law 6">
+              <img src="School of Law/7.jpeg" alt="School of Law 7">
+              <img src="School of Law/8.jpeg" alt="School of Law 8">
+            </div>
+          </div>
+        </div>
+
+        <!-- Graduate School Gallery Modal -->
+        <div id="galleryModal3" class="gallery-modal">
+          <div class="gallery-modal-content">
+            <span class="modal-close-btn" onclick="closeModal3()">&times;</span>
+            <h3 style="text-align: center; margin-bottom: 10px;">Graduate School Admission Details</h3>
+            <div class="gallery-grid">
+              <img src="Graduate School/1.jpeg" alt="Graduate School 1">
+              <img src="Graduate School/2.jpeg" alt="Graduate School 2">
+              <img src="Graduate School/3.jpeg" alt="Graduate School 3">
+              <img src="Graduate School/4.jpeg" alt="Graduate School 4">
+              <img src="Graduate School/5.jpeg" alt="Graduate School 5">
+              <img src="Graduate School/6.jpeg" alt="Graduate School 6">
+              <img src="Graduate School/7.jpeg" alt="Graduate School 7">
+              <img src="Graduate School/8.jpeg" alt="Graduate School 8">
+              <img src="Graduate School/9.jpeg" alt="Graduate School 9">
+              <img src="Graduate School/10.jpeg" alt="Graduate School 10">
+              <img src="Graduate School/11.jpeg" alt="Graduate School 11">
+            </div>
+          </div>
+        </div>
+
+        <!-- Existing Accounts Gallery Modal -->
+        <div id="galleryModal4" class="gallery-modal">
+          <div class="gallery-modal-content">
+            <span class="modal-close-btn" onclick="closeModal4()">&times;</span>
+            <h3 style="text-align: center; margin-bottom: 10px;">Existing Accounts Application Process</h3>
+            <div class="gallery-grid">
+              <img src="Existing Accounts/1.jpeg" alt="Existing Account 1">
+              <img src="Existing Accounts/2.jpeg" alt="Existing Account 2">
+              <img src="Existing Accounts/3.jpeg" alt="Existing Account 3">
+              <img src="Existing Accounts/4.jpeg" alt="Existing Account 4">
+              <img src="Existing Accounts/5.jpeg" alt="Existing Account 5">
+              <img src="Existing Accounts/6.jpeg" alt="Existing Account 6">
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -199,6 +407,26 @@
           dropdownMenu.classList.remove("active");
         }
       });
+
+      // Gallery Modal 1 Functions (Grade 1)
+      const galleryModal1 = document.getElementById("galleryModal1");
+      function openModal1() { galleryModal1.style.display = "block"; }
+      function closeModal1() { galleryModal1.style.display = "none"; }
+
+      // Gallery Modal 2 Functions (School of Law)
+      const galleryModal2 = document.getElementById("galleryModal2");
+      function openModal2() { galleryModal2.style.display = "block"; }
+      function closeModal2() { galleryModal2.style.display = "none"; }
+
+      // Gallery Modal 3 Functions (Graduate School)
+      const galleryModal3 = document.getElementById("galleryModal3");
+      function openModal3() { galleryModal3.style.display = "block"; }
+      function closeModal3() { galleryModal3.style.display = "none"; }
+
+      // Gallery Modal 4 Functions (Existing Accounts)
+      const galleryModal4 = document.getElementById("galleryModal4");
+      function openModal4() { galleryModal4.style.display = "block"; }
+      function closeModal4() { galleryModal4.style.display = "none"; }
 
       // Image Modal, Zoom, and Drag Functions
       const modal = document.getElementById("imageModal");
@@ -295,11 +523,13 @@
         isDragging = false;
       });
 
-      // Close modal when clicking the dark backdrop outside the image
+      // Close modals when clicking the dark backdrop outside the content
       window.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          closeModal();
-        }
+        if (e.target === modal) closeModal();
+        if (e.target === galleryModal1) closeModal1();
+        if (e.target === galleryModal2) closeModal2();
+        if (e.target === galleryModal3) closeModal3();
+        if (e.target === galleryModal4) closeModal4();
       });
     </script>
   </body>
