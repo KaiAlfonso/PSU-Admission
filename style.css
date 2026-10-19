@@ -8,6 +8,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   color: #333;
+  overflow-x: hidden;
 }
 
 header {
@@ -17,18 +18,27 @@ header {
   color: black;
   align-items: center;
   position: relative;
+  width: 100%;
 }
 
 header img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  margin-right: 20px;
+  margin-right: 15px;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 header h1 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  word-break: break-word;
+}
+
+@media (min-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
 }
 
 /* Two-Column Main Layout Container */
@@ -42,10 +52,20 @@ header h1 {
   justify-content: center;
 }
 
+/* Full Width Layout Modifier (for About, Requirements, Process) */
+.full-width-layout {
+  display: block;
+}
+
+.content-column {
+  width: 100%;
+}
+
 /* Left Column Styling */
 .left-column {
   flex: 2;
-  min-width: 300px;
+  min-width: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -53,7 +73,8 @@ header h1 {
 /* Right Column Styling */
 .right-column {
   flex: 1;
-  min-width: 300px;
+  min-width: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -62,20 +83,29 @@ header h1 {
   background: #ffffff;
   border: 1px solid #f0d5be;
   margin-bottom: 20px;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+@media (min-width: 768px) {
+  .box-group {
+    padding: 20px;
+  }
 }
 
 .box-group h3 {
   margin-bottom: 8px;
   color: #333;
+  word-break: break-word;
 }
 
 .box-group p {
   color: #555;
   line-height: 1.5;
+  word-break: break-word;
 }
 
 .box-group ul {
@@ -87,6 +117,7 @@ header h1 {
 
 .box-group li {
   display: list-item;
+  word-break: break-word;
 }
 
 /* Quick Links Styles */
@@ -122,7 +153,8 @@ header h1 {
   position: absolute;
   top: 70px;
   right: 15px;
-  width: 200px;
+  width: 260px;
+  max-width: calc(100vw - 30px);
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
@@ -154,29 +186,41 @@ header h1 {
   display: block;
 }
 
-/* Position the parent list item relative so the submenu anchors to it */
+/* Position parent relative */
 .dropdown-menu .dropdown-parent {
   position: relative;
 }
 
-/* Hide the submenu by default and position it to the right */
+/* Submenu layout handling for mobile vs desktop */
 .dropdown-menu .submenu {
   display: none;
-  position: absolute;
-  top: 0;
-  right: 100%;
-  width: 200px;
-  background-color: peachpuff;
-  border-radius: 0 8px 8px 8px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
   list-style: none;
-  padding: 10px 0;
-  margin: 0;
+  padding: 5px 0 5px 15px;
+  margin: 5px 0 0 0;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
 }
 
-/* Style individual submenu items */
+@media (min-width: 992px) {
+  .dropdown-menu .submenu {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 200px;
+    background-color: peachpuff;
+    border-radius: 0 8px 8px 8px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    margin: 0;
+  }
+  
+  .dropdown-menu .dropdown-parent:hover .submenu {
+    display: block;
+  }
+}
+
 .dropdown-menu .submenu li {
-  padding: 10px 20px;
+  padding: 8px 15px;
   text-align: left;
 }
 
@@ -191,11 +235,6 @@ header h1 {
   background-color: white;
 }
 
-/* Show submenu on hover */
-.dropdown-menu .dropdown-parent:hover .submenu {
-  display: block;
-}
-
 /* Hamburger Menu Icon */
 .menu {
   width: 25px;
@@ -206,6 +245,7 @@ header h1 {
   display: inline-block;
   margin-left: auto;
   margin-right: 5px;
+  flex-shrink: 0;
 }
 
 .menu::before {
@@ -248,13 +288,20 @@ header h1 {
 .map-container {
   margin-top: 15px;
   width: 100%;
+  overflow: hidden;
 }
 
 .map-container iframe {
   width: 100%;
-  height: 280px;
+  height: 250px;
   border: 0;
   border-radius: 6px;
+}
+
+@media (min-width: 768px) {
+  .map-container iframe {
+    height: 280px;
+  }
 }
 
 .right-column img {
@@ -276,7 +323,188 @@ header h1 {
   transform: scale(1.02);
 }
 
-/* The Modal Overlay */
+/* Responsive Announcement Posts Grid Layout */
+.posting {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 600px) {
+  .posting {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.image-preview {
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .image-preview {
+    flex: 0 0 200px;
+  }
+}
+
+.image-preview img {
+  width: 100%;
+  max-width: 200px;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.image-preview img:hover {
+  transform: scale(1.02);
+}
+
+.text-content {
+  flex: 1; 
+  min-width: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Responsive Tables for Requirements & Processes */
+.requirements-table,
+.process-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.box-group table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.requirements-table th, .requirements-table td,
+.process-table th, .process-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  vertical-align: top;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .requirements-table th, .requirements-table td,
+  .process-table th, .process-table td {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+.requirements-table th,
+.process-table th {
+  background-color: peachpuff;
+  color: black;
+}
+
+.requirements-table ul,
+.process-table ul {
+  margin-left: 15px;
+  padding: 0;
+  text-align: left;
+}
+
+.requirements-table li,
+.process-table li {
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.workflow-box {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.6;
+  overflow-x: auto;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .workflow-box {
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Gallery Modal Styles */
+.gallery-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  overflow: auto;
+  padding: 20px 10px;
+}
+
+.gallery-modal-content {
+  max-width: 650px;
+  width: 95%;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+@media (min-width: 500px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+/* The Single Image Zoom Modal */
 .modal {
   display: none;
   position: fixed;
@@ -289,11 +517,10 @@ header h1 {
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-/* Modal Content (The Image) */
 .modal-content {
   display: block;
-  max-width: 80vw;
-  max-height: 75vh;
+  max-width: 90vw;
+  max-height: 70vh;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -308,23 +535,22 @@ header h1 {
   cursor: grabbing;
 }
 
-/* Zoom Controls Toolbar */
 .modal-controls {
   position: absolute;
-  top: 20px;
+  top: 15px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1010;
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .modal-controls button {
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 6px 14px;
-  font-size: 16px;
+  padding: 5px 10px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
   border-radius: 4px;
@@ -335,28 +561,26 @@ header h1 {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Caption Text */
 #modalCaption {
   margin: auto;
   display: block;
-  width: 80%;
+  width: 90%;
   text-align: center;
   color: #ccc;
   padding: 10px 0;
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 16px;
+  font-size: 0.9rem;
 }
 
-/* Close Button */
 .modal-close {
   position: absolute;
-  top: 20px;
-  right: 35px;
+  top: 15px;
+  right: 20px;
   color: #f1f1f1;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -376,4 +600,5 @@ footer {
   border-top: 1px solid #ddd;
   margin-top: 20px;
   background-color: #fff;
+  width: 100%;
 }
