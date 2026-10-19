@@ -615,6 +615,6 @@ footer {
     flex-direction: column;
   }
   .right-column {
-    order: -1; /* Moves the right column to the very top */
+    order: 1; 
   }
 }
