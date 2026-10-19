@@ -531,6 +531,17 @@
         if (e.target === galleryModal3) closeModal3();
         if (e.target === galleryModal4) closeModal4();
       });
+
+      // Toggle Submenu on Mobile Tap
+      document.querySelectorAll(".dropdown-parent > a").forEach(function(link) {
+        link.addEventListener("click", function(e) {
+          const submenu = this.nextElementSibling;
+          if (submenu && submenu.classList.contains("submenu")) {
+            e.preventDefault();
+            submenu.classList.toggle("active");
+          }
+        });
+      });
     </script>
   </body>
 </html>
