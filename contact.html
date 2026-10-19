@@ -90,6 +90,26 @@
           dropdownMenu.classList.remove("active");
         }
       });
+
+      // Robust Submenu Toggle for Mobile (Works repeatedly & across all pages)
+      document.addEventListener("click", function(e) {
+        const parent = e.target.closest(".dropdown-parent");
+        if (parent) {
+          const link = parent.querySelector(":scope > a");
+          const submenu = parent.querySelector(":scope > .submenu");
+          
+          // If clicking the Programs parent link/text
+          if (submenu && link && (e.target === link || link.contains(e.target))) {
+            e.preventDefault();
+            submenu.classList.toggle("active");
+          }
+        } else {
+          // Close submenus if clicking outside the dropdown parent
+          document.querySelectorAll(".submenu.active").forEach(sub => {
+            sub.classList.remove("active");
+          });
+        }
+      });
     </script>
   </body>
 </html>
