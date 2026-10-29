@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admission - Palawan State University</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="Admission LOGO.jpg" />
+    <style>
+        .left, .left ul {
+            text-align: left;
+        }
+
+        .left ul {
+            margin-left: 30px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header & Navigation -->
+    <header>
+      <img src="Admission LOGO.jpg" alt="Admission logo" />
+      <h1>WELCOME TO ADMISSION</h1>
+
+      <!-- Hamburger Menu Icon -->
+      <div
+        class="menu"
+        id="menu"
+        aria-label="Toggle navigation menu"
+        role="button"
+        tabindex="0"
+      ></div>
+    </header>
+
+    <!-- Dropdown Navigation Menu -->
+    <nav class="dropdown-menu" id="dropdownMenu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown-parent">
+          <a href="Campuses.html">Campuses</a>
+        </li>
+        <li class="dropdown-parent">
+          <a>Programs</a>
+          <ul class="submenu">
+            <li><a href="undergraduate.html">Undergraduate</a></li>
+            <li><a href="graduate.html">Graduate</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-parent">
+          <a href="admissionrequirements.html">Admission Requirements</a>
+        </li>
+        <li class="dropdown-parent">
+          <a href="processofapplication.html">Process of Application</a>
+        </li>
+        <li><a href="foreignStudent.html">Foreign Students</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Container (Full-Width / Single Column Layout) -->
+    <main class="main-container full-width-layout">
+      <div class="content-column">
+        <section class="box-group">
+          <h3>COLLEGE FOREIGN STUDENT</h3>
+          <em>(International Applicants)</em>
+
+          <div class="left">
+            <p><strong>Minimum Requirements:</strong></p>
+            <ul>
+              <li>Full-fledged citizen of a foreign country; AND</li>
+              <li>
+                Undergraduate student abroad wanting to transfer/continue at
+                PSU; OR graduate of a foreign Senior High School
+              </li>
+            </ul>
+            <br />
+
+            <p><strong>Grade Requirements:</strong></p>
+            <ul>
+              <li>No grade below C+ in all subjects</li>
+            </ul>
+            <br />
+            <p><strong>Documentary Requirements:</strong></p>
+            <ul>
+              <li>
+                Scholastic Records / Transcript of Records (showing all grades
+                and GWA)
+              </li>
+              <li>Honorable Dismissal (if college units were earned)</li>
+              <li>
+                Passport Bio-page & Alien Certificate of Registration (ACR-I)
+                Card
+              </li>
+              <li>
+                Student Visa (if applicable) & Police Clearance from country of
+                origin
+              </li>
+              <li>Certificate of Good Moral Character from previous school</li>
+              <li>
+                Birth Certificate duly authenticated by Philippine Foreign
+                Service Post (PFSP)
+              </li>
+              <li>
+                English Proficiency Certificate (IELTS-6 band score, TOEFL-min
+                500 paper / 173 computer) if non-English native/medium
+              </li>
+              <li>2x2 ID Picture</li>
+              <li>
+                Official Receipt of Admission Fee (USD $17 / Php 800) from
+                Cashier’s Office (non-refundable)
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Admission Office. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const menuIcon = document.getElementById("menu");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      menuIcon.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("active");
+      });
+
+      window.addEventListener("click", (e) => {
+        if (!menuIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownMenu.classList.remove("active");
+        }
+      });
+
+      // Robust Submenu Toggle for Mobile (Works repeatedly & across all pages)
+      document.addEventListener("click", function(e) {
+        const parent = e.target.closest(".dropdown-parent");
+        if (parent) {
+          const link = parent.querySelector(":scope > a");
+          const submenu = parent.querySelector(":scope > .submenu");
+          
+          // If clicking the Programs parent link/text
+          if (submenu && link && (e.target === link || link.contains(e.target))) {
+            e.preventDefault();
+            submenu.classList.toggle("active");
+          }
+        } else {
+          // Close submenus if clicking outside the dropdown parent
+          document.querySelectorAll(".submenu.active").forEach(sub => {
+            sub.classList.remove("active");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
