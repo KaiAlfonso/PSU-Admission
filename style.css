@@ -609,6 +609,116 @@ footer {
   width: 100%;
 }
 
+
+/* FAQ Main Container */
+.faq-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Individual FAQ Card */
+.faq-item {
+  background-color: #ffffff;
+  border: 3px solid peachpuff;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.faq-item[open] {
+  border-color: #f4a460;
+}
+
+/* Clickable Question Row */
+.faq-question {
+  padding: 18px 20px;
+  font-weight: bold;
+  font-size: 1.05rem;
+  cursor: pointer;
+  list-style: none; /* Hides default browser triangle */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none; /* Hides default triangle in Safari/Chrome */
+}
+
+.faq-question:hover {
+  background-color: #fff7ef;
+}
+
+/* Custom + / - Indicator */
+.faq-question::after {
+  content: "▼";
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: black;
+  margin-left: 15px;
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] .faq-question::after {
+  transform: rotate(180deg);
+}
+
+/* Answer Content Area */
+.faq-answer {
+  padding: 0 20px 18px 20px;
+  color: #555;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 14px;
+}
+
+.faq-answer code {
+  background-color: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+  color: #c7254e;
+}
+
+ol {
+  padding-left: 40px;
+  margin-top: 8px;
+}
+
+/* Fieldset Form Box */
+.faq-fieldset {
+  max-width: 840px;
+  margin: 40px auto;
+  padding: 25px 20px;
+  border: 3px solid peachpuff;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Legend Title Sitting on Top Border */
+.faq-fieldset legend {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  background-color: peachpuff;
+  padding: 6px 18px;
+  border-radius: 20px;
+  border: 2px solid #f4a460;
+  margin-left: 10px;
+}
+
+/* Adjust inner container margin so it fits neatly inside the fieldset */
+.faq-fieldset .faq-container {
+  margin: 10px auto 0 auto;
+  padding: 0;
+}
+
 @media (max-width: 768px) {
   .main-container {
     display: flex;
