@@ -10,34 +10,63 @@
     <header>
       <img src="Admission LOGO.jpg" alt="Admission Logo" />
       <h1>
-        WELCOME TO PSU ADMISSION
+        WELCOME TO ADMISSION
       </h1>
+      <!-- Hamburger Menu Icon matching style.css and script ID -->
+      <div id="menu" class="menu" role="button" aria-label="Toggle Menu" tabindex="0"></div>
     </header>
 
-    <fieldset class="faq-fieldset">
-      <legend>
-        Frequently Asked Questions
-      </legend>
+    <!-- Dropdown Navigation Menu -->
+    <nav class="dropdown-menu" id="dropdownMenu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown-parent">
+          <a href="Campuses.html">Campuses</a>
+        </li>
+        <li class="dropdown-parent">
+          <a href="#">Programs</a>
+          <ul class="submenu">
+            <li><a href="undergraduate.html">Undergraduate</a></li>
+            <li><a href="graduate.html">Graduate</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-parent">
+          <a href="admissionrequirements.html">Admission Requirements</a>
+        </li>
+        <li class="dropdown-parent">
+          <a href="processofapplication.html">Process of Application</a>
+        </li>
+        <li><a href="foreignStudent.html">Foreign Students</a></li>
+        <li><a href="FAQ.html">Frequently Asked Questions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
 
-      <main class="faq-container">
-        <details class="faq-item">
+    <section class="faq-fieldset">
+      <h2>
+        Frequently Asked Questions
+      </h2>
+
+      <div class="faq-container">
+        <details class="faq-item" name="faq-group">
           <summary class="faq-question">
             <span>1. Ano ang dapat kong gawin kung biglang mawalan ng internet habang pinupunan ko ang application form, mag-reload ang website, mawala ang mga nailagay kong impormasyon, at hindi ko na ma-access ang aking account?</span>
           </summary>
           <div class="faq-answer">
             <p>
               Depende ito kung natapos mo na ang proseso ng beripikasyon (verification process) at nakatanggap ka na ng pansamantalang password (temporary password).
-              <ul style="list-style-type: '- '; padding-left: 1.5rem;">
-                <li>Kung nakatanggap ka na ng temporary password: Ibig sabihin, nagawa na ang iyong account. Pumunta sa "Already Have an Account" at mag-log in gamit ang iyong account at temporary password.</li>
-                <li>Kung wala ka pang natatanggap na temporary password: Ibig sabihin, hindi pa nagagawa ang iyong account sa system. Kailangan mong ulitin ang proseso at piliin ang "New Applicant" upang magsimula muli.</li>
-              </ul>
             </p>
+            <ul style="list-style-type: '- '; padding-left: 1.5rem;">
+              <li>Kung nakatanggap ka na ng temporary password: Ibig sabihin, nagawa na ang iyong account. Pumunta sa "Already Have an Account" at mag-log in gamit ang iyong account at temporary password.</li>
+              <li>Kung wala ka pang natatanggap na temporary password: Ibig sabihin, hindi pa nagagawa ang iyong account sa system. Kailangan mong ulitin ang proseso at piliin ang "New Applicant" upang magsimula muli.</li>
+            </ul>
             <br />
             <p style="color: red;">Paalala: Ang pagtanggap ng temporary password sa iyong email ay nangangahulugang matagumpay nang nagawa ang iyong account. Kaya hindi mo na kailangang gumawa ng panibagong account.</p>
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item" name="faq-group">
           <summary class="faq-question">
             <span>2. Ano ang dapat kong gawin kung ma-lock ang aking account?</span>
           </summary>
@@ -165,16 +194,16 @@
             </div>
           </div>
         </details>
-      </main>
-    </fieldset>
+      </div>
+    </section>
 
-    <fieldset class="faq-fieldset">
-      <legend>
+    <section class="faq-fieldset">
+      <h2>
         APPLICATION PROCESS
-      </legend>
+      </h2>
 
-      <main class="faq-container">
-        <details class="faq-item">
+      <div class="faq-container">
+        <details class="faq-item" name="process-group">
           <summary class="faq-question">
             <span>1. Pagsusumite ng Aplikasyon</span>
           </summary>
@@ -185,7 +214,7 @@
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item" name="process-group">
           <summary class="faq-question">
             <span>2. Pagsusuri ng Aplikasyon</span>
           </summary>
@@ -196,7 +225,7 @@
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item" name="process-group">
           <summary class="faq-question">
             <span>3. Pagpapadala ng Test Permit</span>
           </summary>
@@ -207,7 +236,7 @@
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item" name="process-group">
           <summary class="faq-question">
             <span>4. Pagsusulit</span>
           </summary>
@@ -218,7 +247,7 @@
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item" name="process-group">
           <summary class="faq-question">
             <span>5. Pagsusuri at Pagmamarka ng Resulta</span>
           </summary>
@@ -229,7 +258,7 @@
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item" name="process-group">
           <summary class="faq-question">
             <span>6. Paglalabas ng Resulta</span>
           </summary>
@@ -240,7 +269,7 @@
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item" name="process-group">
           <summary class="faq-question">
             <span>7. Pagkumpirma ng Slot sa Admission</span>
           </summary>
@@ -251,7 +280,7 @@
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item" name="process-group">
           <summary class="faq-question">
             <span>8. Pagpapatala</span>
           </summary>
@@ -261,11 +290,46 @@
             </p>
           </div>
         </details>
-      </main>
+      </div>
 
-      <h4 style="color: red; margin-top: 20px;">
+      <p style="color: red; margin-top: 20px; font-weight: bold;">
         Paalala: Ang bawat hakbang ay nangangailangan ng sapat na panahon para sa maayos na pagproseso. Mangyaring regular na tingnan ang iyong email, application portal, at opisyal na Facebook page ng Palawan State University para sa mga anunsyo at karagdagang tagubilin.
-      </h4>
-    </fieldset>
+      </p>
+    </section>
+
+    <script>
+      const menuIcon = document.getElementById("menu");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      if (menuIcon && dropdownMenu) {
+        menuIcon.addEventListener("click", () => {
+          dropdownMenu.classList.toggle("active");
+        });
+
+        window.addEventListener("click", (e) => {
+          if (!menuIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove("active");
+          }
+        });
+      }
+
+      // Robust Submenu Toggle for Mobile (Works repeatedly & across all pages)
+      document.addEventListener("click", function(e) {
+        const parent = e.target.closest(".dropdown-parent");
+        if (parent) {
+          const link = parent.querySelector(":scope > a");
+          const submenu = parent.querySelector(":scope > .submenu");
+          
+          if (submenu && link && (e.target === link || link.contains(e.target))) {
+            e.preventDefault();
+            submenu.classList.toggle("active");
+          }
+        } else {
+          document.querySelectorAll(".submenu.active").forEach(sub => {
+            sub.classList.remove("active");
+          });
+        }
+      });
+    </script>
   </body>
 </html>
